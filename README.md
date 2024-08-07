@@ -2,7 +2,7 @@
 
 **Tired of grinding in Adventure Quest 3D? Let DeadLink's AQ3D Bot handle the repetitive tasks while you relax!**
 
-![image](https://github.com/user-attachments/assets/8c933c2f-6c9d-4107-8904-29e7eb2cd881)
+![image](https://github.com/user-attachments/assets/3c7f0298-e36f-4036-85c3-dbb54672c4aa)
 
 **Features:**
 
@@ -33,17 +33,21 @@
 
     * Set a timeout to automatically stop the bot if no enemies are detected for a specified time.
     * Limit the bot's runtime to prevent excessive grinding sessions.
+    * Stop the bot on death.
 
 * **User-Friendly Interface:**
 
     * Intuitive interface with clear instructions and status updates.
     * Easy-to-use settings panel for customizing bot behavior.
     * Real-time bot runtime display.
+    * Expand or Collapse sections as needed.
 
 * **Safety Features:**
 
     * Requires AQ3D to be running for operation.
     * Allows for manual control and pausing.
+    * Only uses skills when an enemy is targeted.
+    * Human like attack patterns and random movement.
 
 **Benefits:**
 
@@ -56,9 +60,16 @@
 
 1. **Setup:**
 
-    * Download and install the bot.
+    * Download and run the bot.
     * Configure the bot by setting the locations of the enemy health bar, player health bar, loot button, revive button detection area, and other relevant elements.
+   
+   To Set the Enemy Health, Player Health, and Respawn Detection you will be asked to click in two locations. These 2 locations will create a square based on the top left corner, and bottom left corner of those 2 clicks. The Bot then uses these square areas for detection purposes. Please try and mimic the setup shown in the green squares in the examples below. 
+![E2BEP5f](https://github.com/user-attachments/assets/424945c7-bbae-4bc2-adef-454d683434ac)
+![bF4OsDl](https://github.com/user-attachments/assets/1d3f1f70-62c2-47fe-a64c-b34767ccecb3)
+Assuming you don't change your resolution, you will only have to configure these settings once. 
+
     * Customize attack keys, movement keys, skill hotkeys, cooldowns, and other settings.
+    * Click Save All settings, and you are all set.
 
 2. **Start Grinding:**
 
@@ -73,8 +84,10 @@
 **Disclaimer:**
 
 * This bot is intended for personal use only.
-* Use at your own risk.
 * Always follow the terms of service of AQ3D.
+* Use at your own risk.
+
+I do not condon cheating, nor do I encourage it. This project is strictly for proof of concept and to practice my python skills. What ever happens to your account, is on you. This project is open source, so if you think something could be done better, by all means go ahead.
 
 **Get Started Today!**
 
