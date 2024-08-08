@@ -2,7 +2,7 @@
 
 **Tired of grinding in Adventure Quest 3D? Let DeadLink's AQ3D Bot handle the repetitive tasks while you relax!**
 
-![image](https://github.com/user-attachments/assets/3c7f0298-e36f-4036-85c3-dbb54672c4aa)
+![image](https://github.com/user-attachments/assets/4b1667d3-13b6-4d50-a81a-4d48b54dff71)
 
 **Features:**
 
