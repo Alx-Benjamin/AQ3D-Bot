@@ -125,6 +125,9 @@ class BotApp:
         ctk.CTkLabel(self.status_frame.content_frame, text="AQ3D Status:").grid(row=1, column=0, padx=5)
         ctk.CTkButton(self.status_frame.content_frame, text="Save All Settings",
                       command=self.save_all_settings).grid(row=2, column=0, columnspan=2, pady=5)
+        ctk.CTkButton(self.status_frame.content_frame, text="Start Bot", command=self.start_bot).grid(row=3, column=0, columnspan=2, pady=5)
+        self.stop_button = ctk.CTkButton(self.status_frame.content_frame, text="Stop Bot", command=self.stop_bot, state="disabled")
+        self.stop_button.grid(row=4, column=0, columnspan=2, pady=5)
 
         # --- Location Frame ---
         self.health_location_label = ctk.CTkLabel(self.location_frame.content_frame, text=f"Enemy Health Location: Not Set")
@@ -211,30 +214,24 @@ class BotApp:
         self.max_runtime_entry.grid(row=3, column=1, sticky="ew")
         self.max_runtime_entry.insert(0, str(self.max_runtime_hours))
 
-        # --- Movement Keys Frame ---
-        movement_frame = ctk.CTkFrame(self.settings_frame.content_frame)
-        movement_frame.grid(row=0, column=2, rowspan=4, sticky="nsew")
-        ctk.CTkLabel(movement_frame, text="Movement Keys:").grid(row=0, column=0, sticky="ew") 
-        
+        # --- Action Frame ---
+        ctk.CTkCheckBox(self.action_frame.content_frame, text="Jump While Moving",
+                    variable=self.jump_while_moving).grid(row=0, column=0, sticky="w")
+        ctk.CTkCheckBox(self.action_frame.content_frame, text="Collect Loot",
+                    variable=self.collect_loot).grid(row=0, column=1, sticky="w")
+
+        ctk.CTkCheckBox(self.action_frame.content_frame, text="Jump While Attacking",
+                    variable=self.jump_while_attacking).grid(row=1, column=0, sticky="w")
+        ctk.CTkCheckBox(self.action_frame.content_frame, text="Stop Bot on Death", 
+                    variable=self.stop_bot_on_death).grid(row=1, column=1, sticky="w")
+
+        ctk.CTkLabel(self.action_frame.content_frame, text="Movement Keys:").grid(row=2, column=0, columnspan=2, sticky="w")
         self.movement_key_vars = {}
         for i, key in enumerate(['w', 'a', 's', 'd']):
             self.movement_key_vars[key] = tk.BooleanVar(value=self.movement_keys[key])
-            ctk.CTkCheckBox(movement_frame, text=f"{key.upper()} (On/Off)",
-                            variable=self.movement_key_vars[key]).grid(row=i+1, column=0, sticky="ew") 
+            ctk.CTkCheckBox(self.action_frame.content_frame, text=f"{key.upper()} (On/Off)",
+                            variable=self.movement_key_vars[key]).grid(row=3 + i//2, column=i%2, sticky="w")
 
-        # --- Action Frame ---
-        ctk.CTkCheckBox(self.action_frame.content_frame, text="Jump While Moving",
-                       variable=self.jump_while_moving).grid(row=0, column=0, columnspan=2)
-        ctk.CTkCheckBox(self.action_frame.content_frame, text="Jump While Attacking",
-                       variable=self.jump_while_attacking).grid(row=1, column=0, columnspan=2)
-        ctk.CTkCheckBox(self.action_frame.content_frame, text="Collect Loot",
-                       variable=self.collect_loot).grid(row=0, column=2, columnspan=2)
-        ctk.CTkCheckBox(self.action_frame.content_frame, text="Stop Bot on Death", 
-                       variable=self.stop_bot_on_death).grid(row=1, column=2, columnspan=2)
-
-        ctk.CTkButton(self.status_frame.content_frame, text="Start Bot", command=self.start_bot).grid(row=3, column=0, columnspan=2, pady=5)
-        self.stop_button = ctk.CTkButton(self.status_frame.content_frame, text="Stop Bot", command=self.stop_bot, state="disabled")
-        self.stop_button.grid(row=4, column=0, columnspan=2, pady=5)
 
         # --- Log Frame ---
         self.log_text = ctk.CTkTextbox(self.log_frame.content_frame, width=300, height=200, wrap="word")
@@ -538,6 +535,8 @@ class BotApp:
             self.log(f"Error focusing AQ3D: {e}")
 
     def select_enemy(self):
+        if not self.bot_running:
+            self.stop_bot
         pyautogui.press('tab')
         time.sleep(0.5)
         if self.is_enemy_detected():
@@ -563,35 +562,32 @@ class BotApp:
             return False
 
     def attack_enemy(self):
-            self.log("Starting attack")
-            while self.is_enemy_detected() and self.bot_running:
-                skill_index = self.get_available_skill()
-                if skill_index is not None:
-                    # Shuffle available skills for random selection
-                    random.shuffle(skill_index)
-                    for idx in skill_index:
-                        self.use_skill(idx)
-                        if self.jump_while_attacking.get() and random.random() < 0.3:
-                            pyautogui.press('space')
-                            time.sleep(0.1)
-                        # Break after using one skill to avoid spamming
-                        break 
-                else:
-                    self.log("All skills on cooldown, using basic attack or waiting...")
-                    time.sleep(random.uniform(0.5, 1.5))
+        self.log("Starting attack")
+        while self.is_enemy_detected() and self.bot_running:
+            skill_index = self.get_available_skill()
+            if skill_index is not None:
+                random.shuffle(skill_index)
+                for idx in skill_index:
+                    self.use_skill(idx)
+                    if self.jump_while_attacking.get() and random.random() < 0.3:
+                        pyautogui.press('space')
+                        time.sleep(0.1)
+                    break
+            else:
+                self.log("All skills on cooldown, using basic attack or waiting...")
+                time.sleep(random.uniform(0.5, 1.5))
 
-                # Reset the timer after each successful enemy detection
-                self.last_enemy_detection_time = time.time()
-                if self.check_and_handle_death():
-                    if self.stop_bot_on_death.get():
-                        self.log("Stop bot on death is enabled, stopping bot.")
-                        self.stop_bot()
-                        break
-                    
+            self.last_enemy_detection_time = time.time()
+            if self.check_and_handle_death():
+                if self.stop_bot_on_death.get():
+                    self.log("Stop bot on death is enabled, stopping bot.")
+                    self.stop_bot()
+                    return  # Exit immediately after stopping
 
+        if self.bot_running:
             self.select_enemy()
-            if self.bot_running and not self.is_enemy_detected() and self.collect_loot.get():
-                self.loot_enemy()
+        if self.bot_running and not self.is_enemy_detected() and self.collect_loot.get():
+            self.loot_enemy()
 
     def get_available_skill(self):
         now = time.time()
