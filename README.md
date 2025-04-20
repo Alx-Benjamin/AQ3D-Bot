@@ -2,7 +2,7 @@
 
 **Tired of grinding in Adventure Quest 3D? Let DeadLink's AQ3D Bot handle the repetitive tasks while you relax!**
 
-![image](https://github.com/user-attachments/assets/b0b61108-95cf-45a0-b315-121f27b51af1)
+![image](https://github.com/user-attachments/assets/6e5e2095-5e74-4e2b-86ec-e8148d992255)
 
 **Features:**
 
@@ -10,6 +10,12 @@
 
     * Automatically detects enemies and attacks them using customizable skills and attack rotations.
     * Includes options for jumping while attacking for added combat effectiveness.
+    * Checks for death and automatically uses potions or clicks the revive button if needed.
+ 
+* **Automated Farming:**
+
+    * Farm Specific mobs, while ignoring others
+    * 
     * Checks for death and automatically uses potions or clicks the revive button if needed.
 
 * **Configurable Skills**
@@ -34,9 +40,11 @@
     * Set a timeout to automatically stop the bot if no enemies are detected for a specified time.
     * Limit the bot's runtime to prevent excessive grinding sessions.
     * Stop the bot on death.
+    * Set % of HP before using your potion
 
 * **User-Friendly Interface:**
 
+    * Click and Drag selection of UI elements
     * Intuitive interface with clear instructions and status updates.
     * Easy-to-use settings panel for customizing bot behavior.
     * Real-time bot runtime display.
@@ -58,28 +66,16 @@
 
 **How it Works:**
 
-1. **Setup:**
+This bot uses screen reading to determine what it should do, and will operate your keyboard and mouse for you.
+Typically this is safer than a bot that interacts with game files, as it is basically using your screen, mouse, and keyboard like a human would.
 
-    * Download and run the bot.
-    * Configure the bot by setting the locations of the enemy health bar, player health bar, loot button, revive button detection area, and other relevant elements.
-   
-   To Set the Enemy Health, Player Health, and Respawn Detection you will be asked to click in two locations. These 2 locations will create a square based on the top left corner, and bottom left corner of those 2 clicks. The Bot then uses these square areas for detection purposes. Please try and mimic the setup shown in the green squares in the examples below. 
-![E2BEP5f](https://github.com/user-attachments/assets/424945c7-bbae-4bc2-adef-454d683434ac)
-![bF4OsDl](https://github.com/user-attachments/assets/1d3f1f70-62c2-47fe-a64c-b34767ccecb3)
-Assuming you don't change your resolution, you will only have to configure these settings once. 
+**Setup:**
 
-    * Customize attack keys, movement keys, skill hotkeys, cooldowns, and other settings.
-    * Click Save All settings, and you are all set.
+You will need to download and install Tesseract in order for the bot to read text on your screen:
+https://github.com/tesseract-ocr/tesseract/releases/download/5.5.0/tesseract-ocr-w64-setup-5.5.0.20241111.exe
 
-2. **Start Grinding:**
-
-    * Start AQ3D and ensure the bot is configured correctly.
-    * Click "Start Bot" to begin grinding.
-
-3. **Monitor Progress:**
-
-    * The bot will automatically handle combat, looting, and movement.
-    * Monitor the bot's progress and runtime through the log window.
+If you do not want to download tesseract, you can use any Version 1.x.x of this bot, as only 2.x.x+ will be using it.
+Learn more about Tesseract (and see its open source code) here: https://github.com/tesseract-ocr/tesseract/releases/tag/5.5.0
 
 **Disclaimer:**
 
@@ -94,5 +90,5 @@ I do not condon cheating, nor do I encourage it. This project is strictly for pr
 Download DeadLink's AQ3D Bot and experience the power of automation in AQ3D.
 
 **Contact:**
-
-* Discord: DeadLink404
+Ask questions, and get help on my Discord Server.
+* Discord Server: [404 Club](https://discord.gg/MfW5Mt7KUe)
