@@ -1,73 +1,69 @@
 ## DeadLink's AQ3D Bot: A Powerful Grinding Assistant
 
-**Tired of grinding in Adventure Quest 3D? Let DeadLink's AQ3D Bot handle the repetitive tasks while you relax!**
+<img width="695" height="526" alt="image" src="https://github.com/user-attachments/assets/bab4e94e-66a5-4c28-83b7-606938e4b525" />
 
-![image](https://github.com/user-attachments/assets/6e5e2095-5e74-4e2b-86ec-e8148d992255)
 
-**Features:**
+The Ultimate AQ3D Companion: Your Personal Grinding Assistant
+=============================================================
 
-* **Automated Combat:**
+Are you tired of the endless grind for reputation, class ranks, and rare items in AdventureQuest 3D? Do you wish you could reclaim your time while still making progress? Introducing the ultimate solution: a sophisticated, highly customizable bot designed to automate the most tedious parts of AQ3D, allowing you to focus on what you enjoy.
 
-    * Automatically detects enemies and attacks them using customizable skills and attack rotations.
-    * Includes options for jumping while attacking for added combat effectiveness.
-    * Checks for death and automatically uses potions or clicks the revive button if needed.
- 
-* **Automated Farming:**
+> This isn't just a simple script; it's a powerful assistant that uses state-of-the-art screen-reading technology to play the game just like a human would. By intelligently analyzing what's on your screen, it navigates the world, identifies targets, executes complex skill rotations, and keeps itself alive, all without injecting code or modifying game files, making it a **safer alternative**.
 
-    * Farm Specific mobs, while ignoring others
-    * 
-    * Checks for death and automatically uses potions or clicks the revive button if needed.
+🚀 Fully Automated & Self Aware
+------------------------------------------------
 
-* **Configurable Skills**
+### 🎯 Intelligent OCR-Based Targeting
 
-    * Supports six configurable skills, including a "Cross Skill" for ultimate attacks.
-    * Set individual cooldowns for each skill to optimize your DPS.
-    * Randomly uses one of your skills that is off cooldown, for better human like gameplay
+*   **The bot sees the game, it doesn't hack it.** Using advanced Optical Character Recognition (OCR), it reads enemy names directly from your screen.
+    
+*   You provide a list of targets—even partial names work—and the bot will relentlessly tab through enemies until it finds a match and launches its assault.
+    
+*   It's even smart enough to attack any nearby enemy if your health drops too low, ensuring you fight your way out of tight spots.
+    
 
-* **Loot Collection:**
+### ⚔️ Complete Combat Customization
 
-    * Automatically loots defeated enemies.
-    * Customizable loot button location for precise targeting.
+*   Don't settle for a one-size-fits-all combat script. With this bot, **you are the strategist.**
+    
+*   Configure the hotkey and cooldown for every single one of your eight skills, including your cross-skills.
+    
+*   Enable or disable skills on the fly to create the perfect rotation for farming, bossing, or class training.
+    
 
-* **Smart Movement:**
+### ❤️ Advanced Survival Instincts
 
-    * Random movement to prevent bot detection.
-    * Customizable movement keys and movement loops for personalized movement patterns.
-    * Option to jump while moving for more dynamic movement.
+*   **This bot is a survivor.** It constantly monitors your health and will automatically use a potion when you drop below a percentage that you define.
+    
+*   If the worst should happen, it detects the "Revive" button, waits a few seconds, clicks it, and can even be configured to automatically run back to your farming spot, minimizing downtime.
+    
 
-* **Advanced Settings:**
+### 🤖 Human-like Behavior & Anti-AFK
 
-    * Set a timeout to automatically stop the bot if no enemies are detected for a specified time.
-    * Limit the bot's runtime to prevent excessive grinding sessions.
-    * Stop the bot on death.
-    * Set % of HP before using your potion
+*   **Avoid detection with randomized, human-like movements.** The bot doesn't just run in straight lines; it moves with random durations and directions.
+    
+*   It can even jump periodically while moving and attacking to mimic real player behavior.
+    
+*   Furthermore, you can set up an AFK timer, where the bot will pause its routine and "go AFK" for a set duration, just like a real player taking a break.
+    
 
-* **User-Friendly Interface:**
+### ⚙️ Set-It-and-Forget-It Operation
 
-    * Click and Drag selection of UI elements
-    * Intuitive interface with clear instructions and status updates.
-    * Easy-to-use settings panel for customizing bot behavior.
-    * Real-time bot runtime display.
-    * Expand or Collapse sections as needed.
+*   **Plan your entire day.** With the built-in scheduler, you can set a maximum runtime in hours. The bot will run for the specified duration and then stop automatically.
+    
+*   It can also be configured to stop if it dies or if it can't find any enemies for a certain period, preventing it from running pointlessly.
+    
 
-* **Safety Features:**
+### 🖥️ Effortless Setup with a Modern UI
 
-    * Requires AQ3D to be running for operation.
-    * Allows for manual control and pausing.
-    * Only uses skills when an enemy is targeted.
-    * Human like attack patterns and random movement.
+*   **Forget confusing command-line tools.** This bot features a clean, professional, and user-friendly interface built with a modern dark theme.
+    
+*   Defining screen areas is as simple as clicking a button and drawing a box over the enemy's name, your health bar, or the revive button.
+    
+*   All settings are saved in a simple file, so your configuration is always ready to go.
+    
 
-**Benefits:**
-
-* **Save Time:** Grind efficiently while you focus on other tasks.
-* **Maximize Efficiency:** Optimize your grinding experience with custom skill rotations.
-* **Reduce Repetitive Strain:** Let the bot handle the tedious tasks.
-* **Level Up Faster:** Gain experience and loot while you're away from your computer.
-
-**How it Works:**
-
-This bot uses screen reading to determine what it should do, and will operate your keyboard and mouse for you.
-Typically this is safer than a bot that interacts with game files, as it is basically using your screen, mouse, and keyboard like a human would.
+This bot is the perfect companion for any AQ3D player looking to **maximize their efficiency and make consistent progress without being chained to their keyboard.** Farm materials, level up your classes, and earn gold while you work, sleep, or spend time on other things.
 
 **Setup:**
 
@@ -89,6 +85,7 @@ I do not condon cheating, nor do I encourage it. This project is strictly for pr
 
 Download DeadLink's AQ3D Bot and experience the power of automation in AQ3D.
 
-**Contact:**
+**Contact & Support**
 Ask questions, and get help on my Discord Server.
 * Discord Server: [404 Club](https://discord.gg/MfW5Mt7KUe)
+* Donate: [Buy me a Coffee](https://buymeacoffee.com/deadlink)
