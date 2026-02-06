@@ -16,6 +16,19 @@ import pytesseract
 import webbrowser
 import keyboard
 
+import subprocess
+import sys
+
+# --- Prevent Tesseract from spawning console windows (Windows only) ---
+if sys.platform.startswith("win"):
+    _original_popen = subprocess.Popen
+
+    def _silent_popen(*args, **kwargs):
+        kwargs.setdefault("creationflags", subprocess.CREATE_NO_WINDOW)
+        return _original_popen(*args, **kwargs)
+
+    subprocess.Popen = _silent_popen
+
 # --- Tesseract Configuration & Validation ---
 TESSERACT_CONFIGURED = False
 TESSERACT_PATH = None
