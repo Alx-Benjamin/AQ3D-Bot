@@ -1,0 +1,7 @@
+PySide6>=6.6
+pyautogui
+pytesseract
+Pillow
+psutil
+pywin32
+keyboard

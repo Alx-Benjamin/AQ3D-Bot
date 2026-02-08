@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Runtime data
+settings.json
+profiles/*.json
+!profiles/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# Build artifacts
+*.spec.bak
+*.msi
+*.exe
+*.zip
+
+# Debug
+debug/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Virtual environments
+venv/
+.venv/
+env/
